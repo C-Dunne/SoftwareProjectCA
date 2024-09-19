@@ -70,6 +70,34 @@
                     No Image
                 @endif
             </div>
+
+            <div>
+                <h1>Items in the <span class="text-capitalize">{{ $center->name }} </span> Trade Center</h1>
+            </div>
+
+            @forelse ($items as $item)
+                <div class="col-md-3 card-col py-3">
+                    <div class="card bg-dark text-light border-0 align-items-center">
+                        <a href="{{ route('admin.items.show', $item) }}" class="card-link rounded text-light bg-dark text-decoration-none">
+                            @if ($item->item_image)
+                                <img class="card-image rounded-top" src="{{ asset($item->item_image) }}" alt="{{ $item->title }}">
+                            @else
+                                No Image
+                            @endif
+                            <div class="card-body text-center text-capitalize">
+                                <h3 class="card-title my-2">
+                                    {{ $item->title }}
+                                </h3>
+                                <p class="card-text my-1">
+                                    {{ $item->category }}
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            @empty
+                <p>No items in this trade center</p>
+            @endforelse
         </div>
     </div>
 @endsection

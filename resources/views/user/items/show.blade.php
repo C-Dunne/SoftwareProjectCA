@@ -48,7 +48,7 @@
                             <h5>Trade Center:</h5>
                         </div>
                         <div class="col-9">
-                            <p class="text-capitalize">{{ $item->center->name }}</p>
+                            <a href="{{ route('user.centers.show', $item->center) }}" class="text-capitalize text-decoration-none text-light">{{ $item->center->name }}</a>
                         </div>
 
                     </div>
